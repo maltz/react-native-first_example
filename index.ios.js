@@ -9,8 +9,24 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
 } from 'react-native';
+
+class Img01 extends Component {
+  render() {
+    let pic = {
+        uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    }
+
+    return (
+      <View>
+        <Image source={pic} style={{width: 200,height: 120}} />
+        <Text>{this.props.label}</Text>
+      </View>
+    )
+  }
+}
 
 export default class first_example extends Component {
   render() {
@@ -26,6 +42,7 @@ export default class first_example extends Component {
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+        <Img01 label="バナナだよ" />
       </View>
     );
   }
