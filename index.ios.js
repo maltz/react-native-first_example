@@ -22,7 +22,7 @@ class Img01 extends Component {
     return (
       <View>
         <Image source={pic} style={{width: 200,height: 120}} />
-        <Text>バナナの写真です</Text>
+        <Text>{this.props.label}</Text>
       </View>
     )
   }
@@ -42,7 +42,7 @@ export default class first_example extends Component {
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
-        <Img01 />
+        <Img01 label="バナナだよ" />
       </View>
     );
   }
