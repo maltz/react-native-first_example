@@ -11,6 +11,7 @@ import {
   Text,
   View,
   Image,
+  TextInput,
 } from 'react-native';
 
 class Img01 extends Component {
@@ -65,6 +66,27 @@ class FlexBox extends Component {
   }
 }
 
+class InputBox extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {text: ''}
+  }
+  render() {
+    return(
+      <View style={{padding: 40}}>
+        <TextInput
+          style={{height: 40}}
+          placeholder="Tyoe here"
+          onChangeText={(text) => this.setState({text})}
+        />
+        <Text>
+          {this.state.text}
+        </Text>
+      </View>
+    )
+  }
+}
+
 export default class first_example extends Component {
   render() {
     return (
@@ -80,6 +102,7 @@ export default class first_example extends Component {
           Cmd+D or shake for dev menu
         </Text>
         <Img01 label="バナナだよ" />
+        <InputBox/>
         <FlexBox />
       </View>
     );
