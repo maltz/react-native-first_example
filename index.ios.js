@@ -13,6 +13,7 @@ import {
   Image,
   TextInput,
   ScrollView,
+  ListView,
 } from 'react-native';
 
 class Img01 extends Component {
@@ -88,10 +89,33 @@ class InputBox extends Component {
   }
 }
 
+class Lists extends Component {
+  constructor(props) {
+    super(props)
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+    this.state = {
+      dataSource: ds.cloneWithRows([
+        'jon','jon','jon','jon','jon','jon','jon','jon','jon'
+      ])
+    }
+  }
+  render() {
+    return(
+      <View style={{flex: 1, paddingTop: 22}}>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData}</Text>}
+          />
+      </View>
+    )
+  }
+}
+
 class ScrollBox extends Component {
   render() {
     return(
       <ScrollView>
+      <Lists />
       <Text>
         ScrollMe
       </Text>
