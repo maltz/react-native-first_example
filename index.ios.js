@@ -14,15 +14,23 @@ import {
 } from 'react-native';
 
 class Img01 extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {showText: true}
+    setInterval(() => {
+      this.setState({ showText: !this.state.showText })
+    }, 1000)
+  }
+
   render() {
     let pic = {
         uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
     }
-
+    let label = this.state.showText ? this.props.label : '美味しいよ'
     return (
       <View>
         <Image source={pic} style={{width: 200,height: 120}} />
-        <Text>{this.props.label}</Text>
+        <Text>{label}</Text>
       </View>
     )
   }
