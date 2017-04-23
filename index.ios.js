@@ -33,7 +33,7 @@ class Img01 extends Component {
     return (
       <View>
         <Image source={pic} style={{width: 200,height: 120}} />
-        <Text style={styles.Img01}>{label}</Text>
+        <Text style={styles.Img01}>{label}:おっぱ</Text>
       </View>
     )
   }
@@ -115,11 +115,11 @@ class ScrollBox extends Component {
   render() {
     return(
       <ScrollView>
-      <Lists />
-      <Text>
-        ScrollMe
-      </Text>
-      {[1,2,3,4,5,6,7,8,9,10].map(function(val) {return <Img01 label={val} />}  )}
+        <Text>
+          ScrollMe
+        </Text>
+        {[1,2,3,4,5,6,7,8,9,10].map(function(val) {return <Img01 label={val} />}  )}
+        <Lists />
       </ScrollView>
     )
   }
@@ -143,6 +143,7 @@ export default class first_example extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 10,
     // justifyContent: 'center',
     // alignItems: 'center',
     backgroundColor: '#F5FCFF',
