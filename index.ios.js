@@ -12,6 +12,7 @@ import {
   View,
   Image,
   TextInput,
+  ScrollView,
 } from 'react-native';
 
 class Img01 extends Component {
@@ -40,7 +41,7 @@ class Img01 extends Component {
 class FlexBox extends Component {
   render() {
     return(
-      <View style={{flex: 1, flexDirection: 'row'}}>
+      <View style={{height: 100,  flexDirection: 'row' }}>
         <View style={{flex: 1, backgroundColor: 'steelblue',justifyContent: 'space-between'}} >
           <Text>aa</Text>
           <Text>aa</Text>
@@ -73,7 +74,7 @@ class InputBox extends Component {
   }
   render() {
     return(
-      <View style={{padding: 40}}>
+      <View style={{padding: 10}}>
         <TextInput
           style={{height: 40}}
           placeholder="Tyoe here"
@@ -87,6 +88,19 @@ class InputBox extends Component {
   }
 }
 
+class ScrollBox extends Component {
+  render() {
+    return(
+      <ScrollView>
+      <Text>
+        ScrollMe
+      </Text>
+      {[1,2,3,4,5,6,7,8,9,10].map(function(val) {return <Img01 label={val} />}  )}
+      </ScrollView>
+    )
+  }
+}
+
 export default class first_example extends Component {
   render() {
     return (
@@ -94,16 +108,9 @@ export default class first_example extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions}>
-          編集するにはおおお index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-        <Img01 label="バナナだよ" />
-        <InputBox/>
         <FlexBox />
+        <InputBox/>
+        <ScrollBox />
       </View>
     );
   }
