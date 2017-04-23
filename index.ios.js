@@ -30,7 +30,36 @@ class Img01 extends Component {
     return (
       <View>
         <Image source={pic} style={{width: 200,height: 120}} />
-        <Text>{label}</Text>
+        <Text style={styles.Img01}>{label}</Text>
+      </View>
+    )
+  }
+}
+
+class FlexBox extends Component {
+  render() {
+    return(
+      <View style={{flex: 1, flexDirection: 'row'}}>
+        <View style={{flex: 1, backgroundColor: 'steelblue',justifyContent: 'space-between'}} >
+          <Text>aa</Text>
+          <Text>aa</Text>
+          <Text>aa</Text>
+        </View>
+        <View style={{flex: 1, backgroundColor: 'skyblue',justifyContent: 'center'}} >
+          <Text>aa</Text>
+          <Text>aa</Text>
+          <Text>aa</Text>
+        </View>
+        <View style={{flex: 1, backgroundColor: 'steelblue',justifyContent: 'space-between', alignItems: 'center'}} >
+          <Text>aa</Text>
+          <Text>aa</Text>
+          <Text>aa</Text>
+        </View>
+        <View style={{flex: 1, backgroundColor: 'skyblue',justifyContent: 'flex-end', alignItems: 'flex-start'}} >
+          <Text>aa</Text>
+          <Text>aa</Text>
+          <Text>aa</Text>
+        </View>
       </View>
     )
   }
@@ -51,6 +80,7 @@ export default class first_example extends Component {
           Cmd+D or shake for dev menu
         </Text>
         <Img01 label="バナナだよ" />
+        <FlexBox />
       </View>
     );
   }
@@ -59,8 +89,8 @@ export default class first_example extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
@@ -73,6 +103,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  Img01: {
+    color: 'red'
+  }
 });
 
 AppRegistry.registerComponent('first_example', () => first_example);
