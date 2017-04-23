@@ -39,11 +39,14 @@ class Img01 extends Component {
 class FlexBox extends Component {
   render() {
     return(
-      <View style={{flex: 1, backgroundColor:'red'}}>
+      <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{flex: 1, backgroundColor: 'steelblue'}} >
           <Text>aa</Text>
         </View>
-        <View style={{flex: 2, backgroundColor: 'skyblue'}} >
+        <View style={{flex: 1, backgroundColor: 'skyblue'}} >
+          <Text>aa</Text>
+        </View>
+        <View style={{flex: 1, backgroundColor: 'steelblue'}} >
           <Text>aa</Text>
         </View>
       </View>
