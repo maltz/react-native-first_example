@@ -40,13 +40,24 @@ class FlexBox extends Component {
   render() {
     return(
       <View style={{flex: 1, flexDirection: 'row'}}>
-        <View style={{flex: 1, backgroundColor: 'steelblue'}} >
+        <View style={{flex: 1, backgroundColor: 'steelblue',justifyContent: 'space-between'}} >
+          <Text>aa</Text>
+          <Text>aa</Text>
           <Text>aa</Text>
         </View>
-        <View style={{flex: 1, backgroundColor: 'skyblue'}} >
+        <View style={{flex: 1, backgroundColor: 'skyblue',justifyContent: 'center'}} >
+          <Text>aa</Text>
+          <Text>aa</Text>
           <Text>aa</Text>
         </View>
-        <View style={{flex: 1, backgroundColor: 'steelblue'}} >
+        <View style={{flex: 1, backgroundColor: 'steelblue',justifyContent: 'space-between', alignItems: 'center'}} >
+          <Text>aa</Text>
+          <Text>aa</Text>
+          <Text>aa</Text>
+        </View>
+        <View style={{flex: 1, backgroundColor: 'skyblue',justifyContent: 'flex-end', alignItems: 'flex-start'}} >
+          <Text>aa</Text>
+          <Text>aa</Text>
           <Text>aa</Text>
         </View>
       </View>
