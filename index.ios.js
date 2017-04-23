@@ -30,7 +30,7 @@ class Img01 extends Component {
     return (
       <View>
         <Image source={pic} style={{width: 200,height: 120}} />
-        <Text>{label}</Text>
+        <Text style={styles.Img01}>{label}</Text>
       </View>
     )
   }
@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  Img01: {
+    color: 'red'
+  }
 });
 
 AppRegistry.registerComponent('first_example', () => first_example);
