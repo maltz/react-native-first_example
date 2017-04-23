@@ -36,6 +36,21 @@ class Img01 extends Component {
   }
 }
 
+class FlexBox extends Component {
+  render() {
+    return(
+      <View style={{flex: 1, backgroundColor:'red'}}>
+        <View style={{flex: 1, backgroundColor: 'steelblue'}} >
+          <Text>aa</Text>
+        </View>
+        <View style={{flex: 2, backgroundColor: 'skyblue'}} >
+          <Text>aa</Text>
+        </View>
+      </View>
+    )
+  }
+}
+
 export default class first_example extends Component {
   render() {
     return (
@@ -51,6 +66,7 @@ export default class first_example extends Component {
           Cmd+D or shake for dev menu
         </Text>
         <Img01 label="バナナだよ" />
+        <FlexBox />
       </View>
     );
   }
@@ -59,8 +75,8 @@ export default class first_example extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   welcome: {
