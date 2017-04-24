@@ -126,14 +126,24 @@ class ScrollBox extends Component {
 export default class first_example extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <FlexBox />
-        <InputBox/>
-        <ScrollBox />
-      </View>
+      <Swiper style={styles.wrapper} showsButtons={false}>
+        <View style={styles.slide1}>
+          <Text style={styles.text}>Hello Swiper</Text>
+        </View>
+        <View style={styles.slide2}>
+          <View style={styles.container}>
+            <Text style={styles.welcome}>
+              Welcome to React Native!
+            </Text>
+            <FlexBox />
+            <InputBox/>
+            <ScrollBox />
+          </View>
+        </View>
+        <View style={styles.slide3}>
+          <Text style={styles.text}>And simple</Text>
+        </View>
+      </Swiper>
     );
   }
 }
@@ -158,6 +168,28 @@ const styles = StyleSheet.create({
   },
   Img01: {
     color: 'red'
+  },slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
   }
 });
 
