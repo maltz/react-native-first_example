@@ -15,6 +15,7 @@ import {
   ScrollView,
   ListView,
 } from 'react-native';
+import Swiper from 'react-native-swiper';
 
 class Img01 extends Component {
   constructor(props) {
@@ -31,9 +32,9 @@ class Img01 extends Component {
     }
     let label = this.state.showText ? this.props.label : '美味しいよ'
     return (
-      <View>
-        <Image source={pic} style={{width: 200,height: 120}} />
-        <Text style={styles.Img01}>{label}:おっぱいおおっｐ</Text>
+      <View style={{ padding: 10, backgroundColor: 'white', margin: 5 }} >
+        <Image source={pic} style={{width: 156, height: 100}} />
+        <Text style={styles.Img01}>{label}:おっぱ</Text>
       </View>
     )
   }
@@ -95,18 +96,19 @@ class Lists extends Component {
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
       dataSource: ds.cloneWithRows([
-        'jon','jon','jon','jon','jon','jon','jon','jon','jon'
+        '美味しかい','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな',
       ])
     }
   }
   render() {
     return(
-      <View style={{flex: 1, paddingTop: 22}}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData}</Text>}
-          />
-      </View>
+      <ListView
+        dataSource={this.state.dataSource}
+        style={{ flex: 1, paddingTop: 20, backgroundColor: '#dddddd' }}
+        contentContainerStyle={{ flexDirection: 'row', flexWrap: 'wrap' }}
+        renderRow={(rowData) => <Img01 label={rowData} />}
+        />
+
     )
   }
 }
@@ -115,10 +117,6 @@ class ScrollBox extends Component {
   render() {
     return(
       <ScrollView>
-        <Text>
-          ScrollMe
-        </Text>
-        {[1,2,3,4,5,6,7,8,9,10].map(function(val) {return <Img01 label={val} />}  )}
         <Lists />
       </ScrollView>
     )
