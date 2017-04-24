@@ -129,12 +129,21 @@ export default class first_example extends Component {
     return (
       <Swiper style={styles.wrapper} showsButtons={false}>
         <View style={styles.slide1}>
-          <Text style={styles.text}>Hello Swiper</Text>
-          <Button
-            raised
-            buttonStyle={{backgroundColor: 'steelblue', borderRadius: 8, padding:20}}
-            textStyle={{textAlign: 'center',fontWeight:'bold',fontSize:20}}
-            title={`サインアップ`} />
+          <View style={{flexDirection: 'column' }}>
+            <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
+              <Text style={styles.text}>Dempro</Text>
+            </View>
+            <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
+              <Button
+                raised
+                buttonStyle={{backgroundColor: 'steelblue', borderRadius: 4, padding:20}}
+                textStyle={{textAlign: 'center',fontWeight:'bold',fontSize:20}}
+                title={`サインアップ`} />
+            </View>
+
+          </View>
+
+
         </View>
         <View style={styles.slide2}>
           <View style={styles.container}>
