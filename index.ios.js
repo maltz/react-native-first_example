@@ -16,6 +16,7 @@ import {
   ListView,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
+import { Button } from 'react-native-elements';
 
 class Img01 extends Component {
   constructor(props) {
@@ -129,6 +130,11 @@ export default class first_example extends Component {
       <Swiper style={styles.wrapper} showsButtons={false}>
         <View style={styles.slide1}>
           <Text style={styles.text}>Hello Swiper</Text>
+          <Button
+            raised
+            buttonStyle={{backgroundColor: 'steelblue', borderRadius: 8, padding:20}}
+            textStyle={{textAlign: 'center',fontWeight:'bold',fontSize:20}}
+            title={`サインアップ`} />
         </View>
         <View style={styles.slide2}>
           <View style={styles.container}>
@@ -168,7 +174,8 @@ const styles = StyleSheet.create({
   },
   Img01: {
     color: 'red'
-  },slide1: {
+  },
+  slide1: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
