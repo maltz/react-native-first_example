@@ -33,8 +33,9 @@ render () {
       onPress={this.updateIndex}
       selectedIndex={selectedIndex}
       buttons={buttons}
+      selectedBackgroundColor='steelblue'
+      selectedTextStyle={{color:'white'}}
       containerStyle={{height: 40, width:250}} />
-
   )
 }
 }
@@ -42,13 +43,8 @@ render () {
 class SexSegment extends Component {
   render() {
     return (
-      <View>
-        <View style={{marginBottom: 10}}>
-          <SegmentedControlIOS values={['One', 'Two']} />
-        </View>
-        <View>
-          <SegmentedControlIOS values={['One', 'Two', 'Three', 'Four', 'Five']} />
-        </View>
+      <View style={{marginBottom: 10}}>
+        <SegmentedControlIOS values={['One', 'Two']} />
       </View>
     );
   }
@@ -59,7 +55,7 @@ export default class swiper1 extends Component {
     return (
       <View style={styles.slide1}>
         <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
-          <Text style={styles.text}>あなたのプロフィール2</Text>
+          <Text style={styles.text}>あなたのプロフィール22</Text>
         </View>
         <View style={{flex: 3,justifyContent: 'center',alignItems: 'center'}}>
           <SexButton />
