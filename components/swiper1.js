@@ -21,8 +21,8 @@ export default class swiper1 extends Component {
         </View>
         <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
           <Button
-            raised            
-            buttonStyle={{backgroundColor: 'steelblue', borderRadius: 4, padding:20}}
+            raised
+            buttonStyle={{backgroundColor: 'steelblue', borderRadius: 1, padding:20}}
             textStyle={{textAlign: 'center',fontWeight:'bold',fontSize:20}}
             title={`サインアップページへ`} />
         </View>

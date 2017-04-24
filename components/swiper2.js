@@ -11,7 +11,7 @@ import {
   SegmentedControlIOS,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
-import { Button, ButtonGroup } from 'react-native-elements';
+import { Button, ButtonGroup, FormLabel, FormInput } from 'react-native-elements';
 
 class SexButton extends Component {
   constructor () {
@@ -50,20 +50,64 @@ class SexSegment extends Component {
   }
 }
 
+class SignUpForm extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {email: '', password:'', password_confirmation:'',sex:'female',birth_year: 1960}
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(event) {
+    this.setState({email: '', password:'', password_confirmation:'',sex:'female',birth_year: 1960});
+    event.preventDefault();
+  }
+
+  render() {
+    return (
+      <View>
+        <Text>
+        {this.state.email},
+        {this.state.password}
+        </Text>
+        <Text>
+          Email
+        </Text>
+        <TextInput
+          style={{height: 40, width: 200, backgroundColor: '#ffffff', borderColor: 'gray', borderWidth: 1,paddingLeft:20}}
+          placeholder="Type email"
+          autoFocus={true}
+          onChangeText={(text) => this.setState({email:text})}
+        />
+        <Text>
+          Password
+        </Text>
+        <TextInput
+          style={{height: 40, width: 200, backgroundColor: '#ffffff', borderColor: 'gray', borderWidth: 1,paddingLeft:20}}
+          placeholder="Type password"
+          onChangeText={(text) => this.setState({password:text})}
+        />
+        <Button
+          raised
+          buttonStyle={{backgroundColor: 'steelblue', borderRadius: 1, padding:20}}
+          textStyle={{textAlign: 'center',fontWeight:'bold',fontSize:20}}
+          title={`登録`}
+          onPress={this.handleSubmit}
+          />
+      </View>
+    )
+  }
+}
+
 export default class swiper1 extends Component {
   render() {
     return (
       <View style={styles.slide1}>
         <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
-          <Text style={styles.text}>あなたのプロフィール22</Text>
+          <Text style={styles.text}>あなたのプロフィール</Text>
         </View>
         <View style={{flex: 3,justifyContent: 'center',alignItems: 'center'}}>
-          <SexButton />
-          <Button
-            raised
-            buttonStyle={{backgroundColor: 'steelblue', borderRadius: 4, padding:20}}
-            textStyle={{textAlign: 'center',fontWeight:'bold',fontSize:20}}
-            title={`サインアップページへ`} />
+          <SignUpForm />
         </View>
       </View>
     )

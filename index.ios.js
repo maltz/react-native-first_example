@@ -130,7 +130,7 @@ class ScrollBox extends Component {
 export default class first_example extends Component {
   render() {
     return (
-      <Swiper style={styles.wrapper} showsButtons={true} index={4} loop={false}>
+      <Swiper style={styles.wrapper} showsButtons={true} index={1} loop={false}>
         <Swiper1 />
         <Swiper2 />
         <View style={styles.slide2}>
