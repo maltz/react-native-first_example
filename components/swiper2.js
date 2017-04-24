@@ -9,36 +9,10 @@ import {
   ScrollView,
   ListView,
   SegmentedControlIOS,
+  Alert,
 } from 'react-native';
 import Swiper from 'react-native-swiper';
 import { Button, ButtonGroup, FormLabel, FormInput } from 'react-native-elements';
-
-class SexButton extends Component {
-  constructor () {
-    super()
-    this.state = {
-      selectedIndex: 2
-    }
-    this.updateIndex = this.updateIndex.bind(this)
-  }
-  updateIndex (selectedIndex) {
-    this.setState({selectedIndex})
-  }
-
-  render () {
-    const buttons = ['女性', '男性']
-    const { selectedIndex } = this.state
-    return (
-      <ButtonGroup
-        onPress={this.updateIndex}
-        selectedIndex={selectedIndex}
-        buttons={buttons}
-        selectedBackgroundColor='steelblue'
-        selectedTextStyle={{color:'white'}}
-        containerStyle={{height: 40, width:250}} />
-    )
-  }
-}
 
 class SexSegment extends Component {
   render() {
@@ -58,10 +32,21 @@ class SignUpForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  onChangeSex = (event) => {
+    if (event.nativeEvent.selectedSegmentIndex == 0) {
+      this.setState({
+        sex: 'female'
+      })
+    } else if (event.nativeEvent.selectedSegmentIndex == 1)  {
+      this.setState({
+        sex: 'male'
+      })
+    }
+  };
+
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state.email)
-    this.setState({email: '', password:'', password_confirmation:'',sex:'female',birth_year: 1960});
+    Alert.alert(this.state.email+','+this.state.sex)
   }
 
   render() {
@@ -74,12 +59,22 @@ class SignUpForm extends Component {
         </Text>
 
         <Text>
+          性別
+        </Text>
+        <View style={{marginBottom: 10}}>
+          <SegmentedControlIOS
+            values={['女', '男']}
+            selectedIndex={0}
+            onChange={this.onChangeSex}
+          />
+        </View>
+
+        <Text>
           Email
         </Text>
         <TextInput
           style={{height: 40, width: 200, backgroundColor: '#ffffff', borderColor: 'gray', borderWidth: 1,paddingLeft:20}}
           placeholder="Type email"
-          autoFocus={true}
           onChangeText={(text) => this.setState({email:text})}
         />
 
