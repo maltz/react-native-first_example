@@ -33,7 +33,7 @@ class Img01 extends Component {
     return (
       <View>
         <Image source={pic} style={{width: 200,height: 120}} />
-        <Text style={styles.Img01}>{label}:おっぱ</Text>
+        <Text style={styles.Img01}>{label}:おっぱいおおっｐ</Text>
       </View>
     )
   }
