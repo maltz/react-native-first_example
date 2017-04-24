@@ -55,21 +55,24 @@ class SignUpForm extends Component {
     super(props)
     this.state = {email: '', password:'', password_confirmation:'',sex:'female',birth_year: 1960}
 
-    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
-    this.setState({email: '', password:'', password_confirmation:'',sex:'female',birth_year: 1960});
     event.preventDefault();
+    console.log(this.state.email)
+    this.setState({email: '', password:'', password_confirmation:'',sex:'female',birth_year: 1960});
   }
 
   render() {
     return (
       <View>
         <Text>
-        {this.state.email},
-        {this.state.password}
+          {this.state.email},
+          {this.state.password},
+          {this.state.password_confirmation}
         </Text>
+
         <Text>
           Email
         </Text>
@@ -79,6 +82,7 @@ class SignUpForm extends Component {
           autoFocus={true}
           onChangeText={(text) => this.setState({email:text})}
         />
+
         <Text>
           Password
         </Text>
@@ -87,10 +91,21 @@ class SignUpForm extends Component {
           placeholder="Type password"
           onChangeText={(text) => this.setState({password:text})}
         />
+
+        <Text>
+          Password確認
+        </Text>
+        <TextInput
+          style={{height: 40, width: 200, backgroundColor: '#ffffff', borderColor: 'gray', borderWidth: 1,paddingLeft:20}}
+          placeholder="Type password"
+          onChangeText={(text) => this.setState({password_confirmation:text})}
+        />
+
         <Button
           raised
-          buttonStyle={{backgroundColor: 'steelblue', borderRadius: 1, padding:20}}
-          textStyle={{textAlign: 'center',fontWeight:'bold',fontSize:20}}
+          style={{marginTop:20}}
+          buttonStyle={{backgroundColor: 'steelblue', borderRadius: 1, padding:10}}
+          textStyle={{textAlign: 'center',fontWeight:'bold',fontSize:14}}
           title={`登録`}
           onPress={this.handleSubmit}
           />
