@@ -18,6 +18,9 @@ import {
 import Swiper from 'react-native-swiper';
 import { Button } from 'react-native-elements';
 
+import Swiper1 from './components/swiper1'
+import Swiper2 from './components/swiper2'
+
 class Img01 extends Component {
   constructor(props) {
     super(props)
@@ -127,24 +130,9 @@ class ScrollBox extends Component {
 export default class first_example extends Component {
   render() {
     return (
-      <Swiper style={styles.wrapper} showsButtons={false}>
-        <View style={styles.slide1}>
-          <View style={{flexDirection: 'column' }}>
-            <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
-              <Text style={styles.text}>Dempro</Text>
-            </View>
-            <View style={{flex: 1,justifyContent: 'center',alignItems: 'center'}}>
-              <Button
-                raised
-                buttonStyle={{backgroundColor: 'steelblue', borderRadius: 4, padding:20}}
-                textStyle={{textAlign: 'center',fontWeight:'bold',fontSize:20}}
-                title={`サインアップ`} />
-            </View>
-
-          </View>
-
-
-        </View>
+      <Swiper style={styles.wrapper} showsButtons={true} index={1}>
+        <Swiper1 />
+        <Swiper2 />
         <View style={styles.slide2}>
           <View style={styles.container}>
             <Text style={styles.welcome}>
@@ -183,12 +171,6 @@ const styles = StyleSheet.create({
   },
   Img01: {
     color: 'red'
-  },
-  slide1: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB',
   },
   slide2: {
     flex: 1,
