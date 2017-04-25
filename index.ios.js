@@ -21,7 +21,7 @@ import { Button } from 'react-native-elements';
 import Swiper1 from './components/swiper1'
 import Swiper2 from './components/swiper2'
 
-
+import { Router, Scene, Modal, Actions } from 'react-native-router-flux';
 
 class Img01 extends Component {
   constructor(props) {
@@ -129,27 +129,6 @@ class ScrollBox extends Component {
   }
 }
 
-class SignUp extends Component {
-  render() {
-    return (
-      <Swiper style={styles.wrapper} showsButtons={true} index={1} loop={false}>
-        <Swiper1 />
-        <Swiper2 />
-        <View style={styles.slide2}>
-          <View style={styles.container}>
-            <Text style={styles.welcome}>
-              Welcome to React Native!
-            </Text>
-            <FlexBox />
-            <InputBox/>
-            <ScrollBox />
-          </View>
-        </View>
-      </Swiper>
-    )
-  }
-}
-
 export default class first_example extends Component {
   render() {
     return (
@@ -165,6 +144,9 @@ export default class first_example extends Component {
             <InputBox/>
             <ScrollBox />
           </View>
+        </View>
+        <View style={styles.slide3}>
+          <Text style={styles.text}>And simple</Text>
         </View>
       </Swiper>
     );
