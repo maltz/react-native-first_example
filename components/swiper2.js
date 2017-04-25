@@ -33,6 +33,7 @@ class SignUpForm extends Component {
   }
 
   onChangeSex = (event) => {
+    console.log(222222222);
     if (event.nativeEvent.selectedSegmentIndex == 0) {
       this.setState({
         sex: 'female'
@@ -45,8 +46,15 @@ class SignUpForm extends Component {
   };
 
   handleSubmit(event) {
-    event.preventDefault();
-    Alert.alert(this.state.email+','+this.state.sex)
+    event.preventDefault();  
+    fetch('http://api.whatismyip.com/proxy.php?key=ABCDEF123456789ABCDEF123456789AB')
+      .then(function(response,body) {
+        console.log(body);
+      })
+      .catch(function(response,body) {
+        console.log(response);
+      })
+    // Alert.alert(this.state.email+','+this.state.sex)
   }
 
   render() {
