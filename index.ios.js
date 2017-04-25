@@ -21,8 +21,6 @@ import { Button } from 'react-native-elements';
 import Swiper1 from './components/swiper1'
 import Swiper2 from './components/swiper2'
 
-import { Router, Scene, Modal, Actions } from 'react-native-router-flux';
-
 class Img01 extends Component {
   constructor(props) {
     super(props)
