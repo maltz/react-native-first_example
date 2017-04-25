@@ -12,7 +12,14 @@ import {
   View,
   Image,
   TextInput,
+  ScrollView,
+  ListView,
 } from 'react-native';
+import Swiper from 'react-native-swiper';
+import { Button } from 'react-native-elements';
+
+import Swiper1 from './components/swiper1'
+import Swiper2 from './components/swiper2'
 
 class Img01 extends Component {
   constructor(props) {
@@ -29,9 +36,9 @@ class Img01 extends Component {
     }
     let label = this.state.showText ? this.props.label : '美味しいよ'
     return (
-      <View>
-        <Image source={pic} style={{width: 200,height: 120}} />
-        <Text style={styles.Img01}>{label}</Text>
+      <View style={{ padding: 10, backgroundColor: 'white', margin: 5 }} >
+        <Image source={pic} style={{width: 156, height: 100}} />
+        <Text style={styles.Img01}>{label}:おっぱ</Text>
       </View>
     )
   }
@@ -40,7 +47,7 @@ class Img01 extends Component {
 class FlexBox extends Component {
   render() {
     return(
-      <View style={{flex: 1, flexDirection: 'row'}}>
+      <View style={{height: 100,  flexDirection: 'row' }}>
         <View style={{flex: 1, backgroundColor: 'steelblue',justifyContent: 'space-between'}} >
           <Text>aa</Text>
           <Text>aa</Text>
@@ -73,7 +80,7 @@ class InputBox extends Component {
   }
   render() {
     return(
-      <View style={{padding: 40}}>
+      <View style={{padding: 10}}>
         <TextInput
           style={{height: 40}}
           placeholder="Tyoe here"
@@ -87,24 +94,59 @@ class InputBox extends Component {
   }
 }
 
+class Lists extends Component {
+  constructor(props) {
+    super(props)
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+    this.state = {
+      dataSource: ds.cloneWithRows([
+        '美味しかい','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな','美味しかな',
+      ])
+    }
+  }
+  render() {
+    return(
+      <ListView
+        dataSource={this.state.dataSource}
+        style={{ flex: 1, paddingTop: 20, backgroundColor: '#dddddd' }}
+        contentContainerStyle={{ flexDirection: 'row', flexWrap: 'wrap' }}
+        renderRow={(rowData) => <Img01 label={rowData} />}
+        />
+
+    )
+  }
+}
+
+class ScrollBox extends Component {
+  render() {
+    return(
+      <ScrollView>
+        <Lists />
+      </ScrollView>
+    )
+  }
+}
+
 export default class first_example extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          編集するにはおおお index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-        <Img01 label="バナナだよ" />
-        <InputBox/>
-        <FlexBox />
-      </View>
+      <Swiper style={styles.wrapper} showsButtons={true} index={1} loop={false}>
+        <Swiper1 />
+        <Swiper2 />
+        <View style={styles.slide2}>
+          <View style={styles.container}>
+            <Text style={styles.welcome}>
+              Welcome to React Native!
+            </Text>
+            <FlexBox />
+            <InputBox/>
+            <ScrollBox />
+          </View>
+        </View>
+        <View style={styles.slide3}>
+          <Text style={styles.text}>And simple</Text>
+        </View>
+      </Swiper>
     );
   }
 }
@@ -112,6 +154,7 @@ export default class first_example extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 10,
     // justifyContent: 'center',
     // alignItems: 'center',
     backgroundColor: '#F5FCFF',
@@ -128,6 +171,23 @@ const styles = StyleSheet.create({
   },
   Img01: {
     color: 'red'
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
   }
 });
 
